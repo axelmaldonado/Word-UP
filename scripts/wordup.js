@@ -82,12 +82,19 @@ function checkIfWordIsReal(word) {
       // Replace the 'true' below.
       // If the response contains any results, then the word is legitimate.
       // Otherwise, it is not.
-      if (response.results.length > 0) {
-        var theAnswer = true;
-      }
+      // if (response.results.length > 0) {
+      //   var theAnswer = true;
+      // }
+      var theAnswer = response.results.length > 0;
 
       // TODO 15
       // Update the corresponding wordSubmission in the model
+
+      model.wordSubmissions.forEach(function(w) {
+        if (w.word == word) {
+          w.isRealWord = theAnswer;
+        }
+      });
 
       // re-render
       render();
