@@ -108,7 +108,7 @@ function render() {
 
   // TODO 2
   // Update the curent time remaining on the scoreboard.
-  $("#current-score").text(model.secondsRemaining);
+  $("#time-remaining").text(model.secondsRemaining);
 
   // if the game has not started yet, just hide the #game container and exit
   if (model.gameHasStarted == false) {
@@ -136,6 +136,9 @@ function render() {
 
   // TODO 11
   // Render the word submissions
+
+  var words = model.wordSubmissions.map(wordSubmissionChip);
+  $("#word-submissions").append(words);
 
   // Set the value of the textbox
   $("#textbox").val(model.currentAttempt);
