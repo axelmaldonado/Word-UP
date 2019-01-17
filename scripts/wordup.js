@@ -211,12 +211,18 @@ function wordSubmissionChip(wordSubmission) {
     var scoreChip = $("<span></span>").text("⟐");
     // TODO 17
     // give the scoreChip appropriate text content
-
+    if (wordSubmission.isRealWord) {
+      scoreChip = $("<span></span>").text(wordScore(wordSubmission.word));
+    } else {
+      scoreChip = $("<span></span>").text("X");
+    }
     // TODO 18
     // give the scoreChip appropriate css classes
 
     // TODO 16
+
     // append scoreChip into wordChip
+    wordChip.append(scoreChip);
   }
 
   return wordChip;
