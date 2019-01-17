@@ -212,9 +212,13 @@ function wordSubmissionChip(wordSubmission) {
     // TODO 17
     // give the scoreChip appropriate text content
     if (wordSubmission.isRealWord) {
-      scoreChip = $("<span></span>").text(wordScore(wordSubmission.word));
+      scoreChip = $("<span></span>")
+        .text(wordScore(wordSubmission.word))
+        .addClass("tag-sm tag-good");
     } else {
-      scoreChip = $("<span></span>").text("X");
+      scoreChip = $("<span></span>")
+        .text("X")
+        .addClass("tag-sm tag-bad");
     }
     // TODO 18
     // give the scoreChip appropriate css classes
