@@ -320,7 +320,9 @@ function disallowedLettersInWord(word) {
 function containsOnlyAllowedLetters(word) {
   // TODO 12
   // Return the actual answer.
-  return true;
+  if (disallowedLettersInWord(word).length == 0) {
+    return true;
+  }
 }
 
 /**
