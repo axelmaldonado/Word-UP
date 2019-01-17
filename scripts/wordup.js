@@ -395,7 +395,11 @@ function currentScore() {
 
   // TODO 20
   // return the total sum of the word scores
-  return 0;
+  let sumScore = 0;
+  for (i = 0; i < wordScores.length; i++) {
+    sumScore += wordScores[i];
+  }
+  return sumScore;
 }
 
 // ----------------- UTILS -----------------
