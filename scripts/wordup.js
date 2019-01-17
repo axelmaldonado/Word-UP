@@ -121,9 +121,10 @@ function render() {
   // clear stuff
   $("#allowed-letters").empty();
   $("#word-submissions").empty();
+  $("#textbox").removeClass("bad-attempt");
+
   // TODO 10
   // Add a few things to the above code block (underneath "// clear stuff").
-
   // reveal the #game container
   $("#game").show();
 
@@ -150,6 +151,7 @@ function render() {
 
     // TODO 8
     // append the red letter chips to the form
+    $("#word-attempt-form").append(redLetterChips);
   }
 
   // if the game is over
@@ -157,6 +159,8 @@ function render() {
   if (gameOver) {
     // TODO 9
     // disable the text box and clear its contents
+    $("#textbox").attr("disabled", true);
+    $("#textbox").val("");
   }
 }
 
@@ -227,7 +231,9 @@ $(document).ready(function() {
   // Add another event handler with a callback function.
   // When the textbox content changes,
   // update the .currentAttempt property of the model and re-render
-
+  $(document).on("input", function() {
+    model.currentAttempt = $("#textbox").val();
+  });
   // when the form is submitted
   $("#word-attempt-form").submit(function(evt) {
     // we don't want the page to refresh
@@ -287,6 +293,9 @@ function isDisallowedLetter(letter) {
   // TODO 7
   // This should return true if the letter is not an element of
   // the .allowedLetters list in the model
+  if (model.allowedLetters.indexOf(letter) == -1) {
+    return true;
+  }
   return false;
 }
 
