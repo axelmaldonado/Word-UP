@@ -50,7 +50,12 @@ function addNewWordSubmission(word) {
   // Do we already have a wordSubmission with this word?
   // TODO 21
   // replace the hardcoded 'false' with the real answer
-  var alreadyUsed = false;
+  let alreadyUsed = false;
+  for (i = 0; i < model.wordSubmissions.length; i++) {
+    if (model.wordSubmissions[i].word == word) {
+      alreadyUsed = true;
+    }
+  }
 
   // if the word is valid and hasn't already been used, add it
   if (containsOnlyAllowedLetters(word) && alreadyUsed == false) {
